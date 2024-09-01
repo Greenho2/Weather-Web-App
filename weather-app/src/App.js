@@ -119,6 +119,8 @@ function App() {
   //Fetches the weather when user selects its own location
   const handleUseCurrentLocation = () => {
     if (!navigator.geolocation) {
+      setWeather(null);
+      setSelectedCity([]);
       setError('Geolocation is not supported by this browser.');
       return;
     }
@@ -126,10 +128,13 @@ function App() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
+        setSelectedCity([]);
         fetchWeather({ lat: latitude, lon: longitude });
       },
       (error) => {
         setError(`Geolocation error: ${error.message}`);
+        setWeather(null); 
+        setSelectedCity([]);
       }
     );
   };

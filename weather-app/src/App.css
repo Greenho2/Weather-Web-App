@@ -40,12 +40,10 @@
   padding: 0;
 }
 
-.Author{
-  align-items: left;
-}
 
 .Sun-icon{
-  margin-left: auto;
+  margin-left: 400px;
+  align-items: right;
 }
 
 @media (prefers-reduced-motion: no-preference) {
